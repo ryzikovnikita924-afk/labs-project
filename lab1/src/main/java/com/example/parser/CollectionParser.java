@@ -1,4 +1,5 @@
 package com.example.parser;
+
 import com.example.model.Character;
 import org.xml.sax.Parser;
 

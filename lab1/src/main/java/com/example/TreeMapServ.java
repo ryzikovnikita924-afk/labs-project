@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+
 import com.example.model.Character;
+
 public class TreeMapServ {
-    protected TreeMap<String, List<String>> addTree(List<Character> characterList){
+    protected TreeMap<String, List<String>> addTree(List<Character> characterList) {
 
         TreeMap<String, List<String>> origin_species = new TreeMap<>();
-        for (Character character : characterList){
+        for (Character character : characterList) {
             String origin = character.getOrigin();
             String species = character.getSpecies();
             origin_species.computeIfAbsent(origin, k -> new ArrayList<>()).add(species);
@@ -24,26 +26,27 @@ public class TreeMapServ {
         }
     }
 
-    public void writeCSV(TreeMap<String, List<String>> map, String filename){
+    public void writeCSV(TreeMap<String, List<String>> map, String filename) {
 
-            try(BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
-                for (Map.Entry<String,List<String>> entry : map.entrySet()){
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+            for (Map.Entry<String, List<String>> entry : map.entrySet()) {
 
-                    String origin = entry.getKey();
-                    List<String> species = entry.getValue();
-                    String speciesList = String.join(";", species);
+                String origin = entry.getKey();
+                List<String> species = entry.getValue();
+                String speciesList = String.join(";", species);
 
-                    writer.write(String.format("\"%s\",\"%s\"",
-                            escapeCSV(origin),
-                            escapeCSV(speciesList)
-                    ));
-                    writer.newLine();
+                writer.write(String.format("\"%s\",\"%s\"",
+                        escapeCSV(origin),
+                        escapeCSV(speciesList)
+                ));
+                writer.newLine();
             }
 
-        }catch (IOException e){
-                System.err.println("Ошибка" + e.getLocalizedMessage());
-            }
+        } catch (IOException e) {
+            System.err.println("Ошибка" + e.getLocalizedMessage());
+        }
     }
+
     private String escapeCSV(String value) {
         if (value == null) return "";
         // Экранируем кавычки

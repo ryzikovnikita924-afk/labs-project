@@ -1,4 +1,5 @@
 package com.example.parser;
+
 import com.example.model.Character;
 import com.example.parser.CollectionParser;
 import com.example.parser.LineCSVParser;
