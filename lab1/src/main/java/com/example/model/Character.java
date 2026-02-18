@@ -67,6 +67,43 @@ public class Character {
     public String getCreated() {
         return created;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setSpecies(String species) {
+        this.species = species;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setCreated(String created) {
+        this.created = created;
+    }
+
     public String toString() {
         return "Character{" +
                 "id=" + getID() +
