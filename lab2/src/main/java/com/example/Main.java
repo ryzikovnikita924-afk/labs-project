@@ -2,7 +2,6 @@ package com.example;
 
 import io.jooby.Jooby;
 
-import static io.jooby.Jooby.runApp;
 
 
 public class Main {
