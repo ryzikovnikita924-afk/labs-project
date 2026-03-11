@@ -59,10 +59,10 @@ public class JoobyApp extends Jooby {
 
     private void setupRoutes(HotelController hotelController) {
         get("/hotels", hotelController::getAllHotels);
-        get("/hotels/{id}", hotelController::getHotelById);
-        post("/hotels", hotelController::createHotel);
-        put("/hotels/{id}", hotelController::updateHotel);
-        delete("/hotels/{id}", hotelController::deleteHotel);
+        get("/hotels_get/{id}", hotelController::getHotelById);
+        post("/hotels_cr", hotelController::createHotel);
+        put("/hotels_up/{id}", hotelController::updateHotel);
+        delete("/hotels_del/{id}", hotelController::deleteHotel);
         get("/demo", hotelController::demoCrud);
     }
 }

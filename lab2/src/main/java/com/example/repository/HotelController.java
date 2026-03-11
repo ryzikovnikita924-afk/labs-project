@@ -26,13 +26,13 @@ public class HotelController {
 
     public Object getHotelById(Context ctx) {
         String id = ctx.path("id").value();
-        log.info("GET /hotels/{} - получение отеля по ID", id);
+        log.info("GET /hotels_get/{} - получение отеля по ID", id);
         return hotelsRepository.getById(UUID.fromString(id))
                 .orElseThrow(() -> new BaseException(404, 4041, "Отель не найден"));
     }
 
     public Object createHotel(Context ctx) {
-        log.info("POST /hotels - создание нового отеля");
+        log.info("POST /hotels_cr - создание нового отеля");
         HotelInitialization request = ctx.body(HotelInitialization.class);
 
         UUID id = UUID.randomUUID();
@@ -44,7 +44,7 @@ public class HotelController {
 
     public Object updateHotel(Context ctx) {
         String id = ctx.path("id").value();
-        log.info("PUT /hotels/{} - обновление отеля", id);
+        log.info("PUT /hotels_up/{} - обновление отеля", id);
 
         HotelInitialization request = ctx.body(HotelInitialization.class);
 
@@ -64,7 +64,7 @@ public class HotelController {
 
     public Object deleteHotel(Context ctx) {
         String id = ctx.path("id").value();
-        log.info("DELETE /hotels/{} - удаление отеля", id);
+        log.info("DELETE /hotels_del/{} - удаление отеля", id);
 
         hotelsRepository.deleteById(UUID.fromString(id));
 
