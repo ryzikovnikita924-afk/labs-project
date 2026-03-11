@@ -1,4 +1,4 @@
-package exceptions;
+package com.example.exceptions;
 
 public class BaseException extends RuntimeException {
     private final int httpCode;

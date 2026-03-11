@@ -1,4 +1,4 @@
-package repository;
+package com.example.repository;
 
 import liquibase.Liquibase;
 import liquibase.database.jvm.JdbcConnection;

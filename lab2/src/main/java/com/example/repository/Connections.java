@@ -1,4 +1,4 @@
-package repository;
+package com.example.repository;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

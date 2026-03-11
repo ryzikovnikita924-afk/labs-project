@@ -1,6 +1,6 @@
-package repository;
+package com.example.repository;
 
-import dto.hotels;
+import com.example.dto.hotels;
 import org.jdbi.v3.core.mapper.RowMapper;
 import org.jdbi.v3.core.statement.StatementContext;
 

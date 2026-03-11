@@ -1,10 +1,9 @@
-package repository;
+package com.example.repository;
 
-import dto.hotels;
-import exceptions.RepositoryException;
+import com.example.dto.hotels;
+import com.example.exceptions.RepositoryException;
 import org.jdbi.v3.core.Jdbi;
 import org.jdbi.v3.sqlobject.SqlObjectPlugin;
-import org.jdbi.v3.sqlobject.customizer.Bind;
 
 import javax.sql.DataSource;
 import java.util.List;

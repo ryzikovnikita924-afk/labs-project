@@ -5,25 +5,6 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd">
 
-    <changeSet id="1" author="ryzhikov">
-        <createTable tableName="hotels">
-            <column name="id" type="UUID">
-                <constraints primaryKey="true" nullable="false"/>
-            </column>
-            <column name="name" type="VARCHAR(255)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="stars" type="INT">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-    </changeSet>
+    <include relativeToChangelogFile="true" file="ddl/v1.0.0/2026-11-03--create-hotel-table.xml"/>
 
-    <changeSet id="2" author="ryzhikov">
-        <sql>
-            <![CDATA[
-            ALTER TABLE hotels ADD CONSTRAINT ck_hotels_stars CHECK (stars >= 1 AND stars <= 5);
-            ]]>
-        </sql>
-    </changeSet>
 </databaseChangeLog>

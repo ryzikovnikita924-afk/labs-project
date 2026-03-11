@@ -1,4 +1,4 @@
-package dto;
+package com.example.dto;
 
 public class UniversalResponse<T> {
 
