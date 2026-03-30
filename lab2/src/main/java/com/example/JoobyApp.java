@@ -1,13 +1,10 @@
 package com.example;
-
+import com.example.repository.HotelControllerJooby;
 import com.example.dto.UniversalResponse;
 import com.example.exceptions.BaseException;
-import com.example.repository.HotelController;
+import com.example.repository.*;
 import io.jooby.handler.AccessLogHandler;
 import io.jooby.jackson.JacksonModule;
-import com.example.repository.Connections;
-import com.example.repository.DatabaseMigrator;
-import com.example.repository.HotelsRepository;
 import io.jooby.Jooby;
 import io.jooby.StatusCode;
 import org.slf4j.Logger;
@@ -39,7 +36,7 @@ public class JoobyApp extends Jooby {
         databaseMigrator.runMigrations();
 
         HotelsRepository hotelsRepository = new HotelsRepository(dataSource);
-        HotelController hotelController = new HotelController(hotelsRepository);
+        HotelControllerJooby hotelController = new HotelControllerJooby(hotelsRepository);
 
         setupRoutes(hotelController);
 
@@ -57,8 +54,8 @@ public class JoobyApp extends Jooby {
         });
     }
 
-    private void setupRoutes(HotelController hotelController) {
-        get("/hotels", hotelController::getAllHotels);
+    private void setupRoutes(HotelControllerJooby hotelController) {
+        get("/Hotels", hotelController::getAllHotels);
         get("/hotels_get/{id}", hotelController::getHotelById);
         post("/hotels_cr", hotelController::createHotel);
         put("/hotels_up/{id}", hotelController::updateHotel);

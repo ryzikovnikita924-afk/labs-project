@@ -1,12 +1,19 @@
 package com.example.dto;
 
+import lombok.*;
+
+
+@SuppressWarnings("unused")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class UniversalResponse<T> {
 
-    private final int code;
+    private int code;
 
-    private final String message;
+    private String message;
 
-    private final T data;
+    private T data;
 
     public UniversalResponse(T data) {
         this.code = 0;
@@ -19,17 +26,4 @@ public class UniversalResponse<T> {
         this.message = message;
         this.data = null;
     }
-
-    public int getCode() {
-        return code;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public T getData() {
-        return data;
-    }
 }
-

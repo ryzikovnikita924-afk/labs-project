@@ -1,14 +1,14 @@
 package com.example.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import java.util.Collection;
 
-public class HotelsList {
-    private final Collection<hotels> hotelList;
 
-    public HotelsList(Collection<hotels> hotelList){
-        this.hotelList = hotelList;
-    }
-    public Collection<hotels> getHotels(){
-        return hotelList;
-    }
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class HotelsList {
+    private Collection<Hotels> hotels;
 }

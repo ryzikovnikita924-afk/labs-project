@@ -19,7 +19,7 @@ public class Connections {
         config.setPassword(password);
         config.setDriverClassName("org.postgresql.Driver");
 
-        // Настройки пула (опционально, можно настроить под ваши нужды)
+
         config.setMaximumPoolSize(10); // Максимальное количество соединений в пуле
         config.setMinimumIdle(5); // Минимальное количество простаивающих соединений
         config.setIdleTimeout(300000); // Время простоя соединения (в миллисекундах, 5 минут)

@@ -1,16 +1,18 @@
 package com.example.repository;
 
-import com.example.dto.hotels;
+import com.example.dto.Hotels;
 import com.example.exceptions.RepositoryException;
 import org.jdbi.v3.core.Jdbi;
 import org.jdbi.v3.sqlobject.SqlObjectPlugin;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public class HotelsRepository {
+@Repository
+public class HotelsRepository implements IHotelRepository {
     private final HotelsDao dao;
 
     public HotelsRepository(DataSource dataSource) {
@@ -19,42 +21,43 @@ public class HotelsRepository {
         this.dao = jdbi.onDemand(HotelsDao.class);
     }
 
-    public Optional<hotels> getById(UUID id) {
+    @Override
+    public Optional<Hotels> getById(UUID id) {
         try {
             return dao.getById(id);
         } catch (Exception e) {
-            throw new RepositoryException("Failed to fetch hotels by id", e);
+            throw new RepositoryException("Failed to fetch Hotels by id", e);
         }
     }
 
-    public List<hotels> getAll() {
+    @Override
+    public Optional<Hotels> findByName(String name) {
+        try {
+            return dao.findByName(name);
+        } catch (Exception e) {
+            throw new RepositoryException("Failed to fetch Hotels by name: " + name, e);
+        }
+    }
+
+    @Override
+    public List<Hotels> getAll() {
         try {
             return dao.getAll();
         } catch (Exception e) {
-            throw new RepositoryException("Failed to fetch all hotels", e);
+            throw new RepositoryException("Failed to fetch all Hotels", e);
         }
     }
 
+    @Override
     public void insert(UUID id, String name, int stars) {
         try {
-            System.out.println("=== INSERT DEBUG ===");
-            System.out.println("ID: " + id);
-            System.out.println("Name: " + name);
-            System.out.println("Stars: " + stars);
-            System.out.println("ID class: " + id.getClass().getName());
-
             dao.insert(id, name, stars);
-
-            System.out.println("INSERT успешен для: " + name);
         } catch (Exception e) {
-            System.err.println("INSERT ERROR для: " + name);
-            System.err.println("Exception type: " + e.getClass().getName());
-            System.err.println("Exception message: " + e.getMessage());
-            e.printStackTrace();
             throw new RepositoryException("Failed to insert hotel: " + name, e);
         }
     }
 
+    @Override
     public boolean update(UUID id, String name, int stars) {
         try {
             return dao.update(id, name, stars) > 0;
@@ -63,6 +66,7 @@ public class HotelsRepository {
         }
     }
 
+    @Override
     public void deleteById(UUID id) {
         try {
             dao.deleteById(id);
@@ -71,13 +75,12 @@ public class HotelsRepository {
         }
     }
 
-    public void save(hotels hotel) {
+    @Override
+    public void save(Hotels hotel) {
         try {
             dao.insert(hotel.getId(), hotel.getName(), hotel.getStars());
         } catch (Exception e) {
-            throw new RepositoryException("Failed to save hotels", e);
+            throw new RepositoryException("Failed to save Hotels", e);
         }
     }
 }
-
-
