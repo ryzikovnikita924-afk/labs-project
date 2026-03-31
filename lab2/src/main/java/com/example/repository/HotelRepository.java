@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface IHotelRepository {
+public interface HotelRepository {
     Optional<Hotels> getById(UUID id);
     Optional<Hotels> findByName(String name);
     List<Hotels> getAll();
