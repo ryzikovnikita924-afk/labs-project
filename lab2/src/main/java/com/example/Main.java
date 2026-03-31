@@ -1,11 +1,11 @@
 package com.example;
 
-import io.jooby.Jooby;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
-
+@SpringBootApplication
 public class Main {
     public static void main(String[] args) {
-        Jooby.runApp(args, JoobyApp::new);
+        SpringApplication.run(Main.class, args);
     }
 }

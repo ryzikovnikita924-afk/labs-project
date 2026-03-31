@@ -1,11 +1,11 @@
-package com.example.Service;
+package com.example.service;
 
 import com.example.dto.HotelInitialization;
 import com.example.dto.Hotels;
 import com.example.dto.HotelsList;
 import com.example.dto.UniversalResponse;
 import com.example.exceptions.EntityNotFound;
-import com.example.repository.IHotelRepository;
+import com.example.repository.HotelRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class HotelService {
 
-    private final IHotelRepository hotelsRepository;
+    private final HotelRepository hotelsRepository;
 
     public UniversalResponse<Hotels> create(HotelInitialization request) {
         log.info("Creating new hotel: {}", request.getName());

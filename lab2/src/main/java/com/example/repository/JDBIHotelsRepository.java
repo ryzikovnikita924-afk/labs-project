@@ -12,10 +12,10 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public class HotelsRepository implements IHotelRepository {
+public class JDBIHotelsRepository implements HotelRepository {
     private final HotelsDao dao;
 
-    public HotelsRepository(DataSource dataSource) {
+    public JDBIHotelsRepository(DataSource dataSource) {
         Jdbi jdbi = Jdbi.create(dataSource);
         jdbi.installPlugin(new SqlObjectPlugin());
         this.dao = jdbi.onDemand(HotelsDao.class);

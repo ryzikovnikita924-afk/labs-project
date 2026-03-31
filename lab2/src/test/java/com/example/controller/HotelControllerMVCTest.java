@@ -1,10 +1,11 @@
-import com.example.HotelApplication;
-import com.example.Service.HotelService;
+package com.example.controller;
+
+import com.example.Main;
+import com.example.service.HotelService;
 import com.example.dto.HotelInitialization;
 import com.example.dto.Hotels;
 import com.example.dto.HotelsList;
 import com.example.dto.UniversalResponse;
-import com.example.repository.HotelController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,7 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(HotelController.class)
-@ContextConfiguration(classes = HotelApplication.class)  // Указываем класс конфигурации
+@ContextConfiguration(classes = Main.class)  // Указываем класс конфигурации
 class HotelControllerMVCTest {
 
     @Autowired

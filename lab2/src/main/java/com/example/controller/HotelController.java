@@ -1,6 +1,6 @@
-package com.example.repository;
+package com.example.controller;
 
-import com.example.Service.HotelService;
+import com.example.service.HotelService;
 import com.example.dto.HotelInitialization;
 import com.example.dto.Hotels;
 import com.example.dto.HotelsList;

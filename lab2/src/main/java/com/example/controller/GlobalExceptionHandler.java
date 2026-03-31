@@ -1,4 +1,4 @@
-package com.example.Controller;
+package com.example.controller;
 import com.example.dto.UniversalResponse;
 import com.example.exceptions.BaseException;
 import lombok.extern.slf4j.Slf4j;

@@ -1,11 +1,12 @@
-import com.example.HotelApplication;
-import com.example.Service.HotelService;
+package com.example.service;
+
+import com.example.Main;
 import com.example.dto.HotelInitialization;
 import com.example.dto.Hotels;
 import com.example.dto.HotelsList;
 import com.example.dto.UniversalResponse;
 import com.example.exceptions.EntityNotFound;
-import com.example.repository.IHotelRepository;
+import com.example.repository.HotelRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +19,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
-@SpringBootTest(classes = HotelApplication.class)
+@SpringBootTest(classes = Main.class)
 class HotelServiceTest {
 
     @MockBean
-    private IHotelRepository hotelsRepository;
+    private HotelRepository hotelsRepository;
 
     @Autowired
     private HotelService hotelService;
